@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  color: revert;
+  background-color: #666;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+    color: revert;
+}
+
+.container {
+  width: min(900px, calc(100% - 2rem));
+  margin: 2rem auto;
+}
+
+.controls {
+  display: grid;
+  gap: 0.75rem;
+}
+
+input,
+button {
+  padding: 0.75rem;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#status {
+  min-height: 1.5rem;
+}
+
+#markdownOutput {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#markdownOutput img {
+  max-width: 100%;
+  height: auto;
+}
+
+#markdownOutput pre {
+  overflow-x: auto;
+  padding: 1rem;
+  background: #f4f4f4;
+}
