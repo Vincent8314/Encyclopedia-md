@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;
   background-color: aliceblue;
+  color: black;
   color: revert !important;
+  background-color: revert !important;
 }
 
 body {
