@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
+  background-color: aliceblue;
   color: revert;
-  background-color: #666;
 }
 
 body {
