@@ -1,0 +1,664 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fontlibrary.org//face/mononoki");
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    /* Neutrals */
+    --black: #0d1117;
+    --dark-gray: #161b22;
+    --dark-blue: #1a1b26;
+    --gray-blue: #556283;
+    --muted-blue: #565f89;
+
+    /* Light neutrals */
+    --light-gray: #a9b1d6;
+    --light-blue-gray: #c0caf5;
+    --white-blue: #C9e0f0;
+    --table-text: #c8d1dc;
+
+     /* selection */
+    --selection-background: #45458f;
+    --selection-text: #89dddff2;
+
+
+    /* Accent colors */
+    --blue: #40A0FA;
+    --blue-hover: #4DB4fA;
+    --blue-active: #5AC4FA;
+    --purple: #bb9af7;
+    --blue-purple: #A78BFA;
+    --blue-purple-active: #66D;
+    --cyan: #0db9d7;
+    --new-blue: #60A5f0;
+    --light-cyan: #7dcfff;
+    --green: #9ece6a;
+    --orange: #ff9e64;
+    --yellow: #e0af68;
+    --pink: #f7768e;
+    --magenta: #9d7cd8;
+    --light-blue: #89ddff;
+
+    /* Semantic colors */
+    --highlight: #ebcb8b;
+
+    /* Transparent colors */
+    --light-blue-transparent: #89dddff2;
+}
+
+
+/* =========================================================
+   2. GLOBAL / ROOT
+   ========================================================= */
+
+body {
+    background: var(--black) !important;
+    color: var(--light-blue-gray);
+    font-family: "Nunito", sans-serif !important;
+    /* font-family: "Mononoki", monospace !important; */
+}
+
+div,
+span {
+    color: var(--light-gray);
+}
+
+/* =========================================================
+   GLOBAL BORDER LEFT HOVER
+   ========================================================= */
+
+*::before {
+    border-left: 3px solid #74a !important;
+    BORDER-LEFT: none !important
+}
+p.code-line:has(img):hover::before {
+    border-left: 3px !important;
+}
+/* li:has(p.code-line)::marker {
+    all: red !important;
+} */
+*::selection {
+    background: var(--selection-background);
+    color: var(--selection-text);  
+}
+
+.mtki {
+    color: red !important;
+}
+
+/* =========================================================
+   3. HEADINGS (h1–h6)
+   ========================================================= */
+
+h1 {
+    font-size: 2rem !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    width: fit-content; /* Shrink width to fit content, but remain on its own line */
+    color: var(--blue-purple) !important;
+    padding: 0 !important;
+}   
+
+    h1 {
+        border-bottom: 4px solid grey;
+        letter-spacing: -0.02em;
+        text-decoration: none !important;
+        text-underline-offset: 0.3rem;
+        border-image: linear-gradient(0deg,#543C7D  0px, #A78BFA 1px, transparent 1px) 1 !important;
+        border-image-slice: 1 !important;
+        color: #eee;
+        font-family: sans-serif;
+        padding-bottom: 0.5rem;
+    }
+    h2,h3 {
+        border-bottom: 3px solid grey;
+        letter-spacing: -0.02em;
+        text-decoration: none !important;
+        text-underline-offset: 0.3rem;
+        border-image: linear-gradient(0deg,#543C7D  0px, #A78BFA 1px, YELLOW 20px) 1 !important;
+        border-image-slice: 1 !important;
+        color: #eee;
+        font-family: sans-serif;
+        padding-bottom: 0.5rem;
+    }
+
+    h4,h5,h6 {
+    
+        border-bottom: 2px solid grey;
+        letter-spacing: -0.02em;
+        text-decoration: none !important;
+        text-underline-offset: 0.3rem;
+        border-image: linear-gradient(0deg,#543C7D  0px, #A78BFA 1px, YELLOW 20px) 1 !important;
+        border-image-slice: 1 !important;
+        color: #eee;
+        font-family: sans-serif;
+        padding-bottom: 0.5rem;
+    }
+    h4 {
+    
+        border-bottom: 3px solid grey;
+        letter-spacing: -0.02em;
+        text-decoration: none !important;
+        text-underline-offset: 0.3rem;
+        border-image: linear-gradient(0deg,#543C7D  0px, #A78BFA 1px, YELLOW 20px) 1 !important;
+        border-image-slice: 1 !important;
+        color: #eee;
+        font-family: sans-serif;
+        padding-bottom: 0.5rem;
+    }
+    h5,h6 {
+    
+        border-bottom: 2px solid grey;
+        letter-spacing: -0.02em;
+        text-decoration: none !important;
+        text-underline-offset: 0.3rem;
+        border-image: linear-gradient(0deg,#543C7D  0px, #A78BFA 1px, YELLOW 20px) 1 !important;
+        border-image-slice: 1 !important;
+        color: #eee;
+        font-family: sans-serif;
+        padding-bottom: 0.5rem;
+    }
+/* Headings containing/holding code */
+:is(h1, h2, h3, h4, h5, h6):has(code),
+:is(h1, h2, h3, h4, h5, h6)>code {
+    color: var(--blue-purple) !important;
+    text-decoration: none !important;
+    /* border-left: none !important; */
+}
+
+:is(h1, h2, h3, h4, h5, h6):has(code):hover {
+    color: var(--blue-purple) !important;
+    text-decoration: none !important;
+    border-left: none !important;
+    /* background: none !important; */
+}
+
+/* Headings containing <strong> */
+:is(h1, h2, h3, h4, h5, h6)>strong {
+    color: var(--blue-purple);
+}
+
+/* =========================================================
+   4. BODY TEXT (p, li, dd)
+   ========================================================= */
+
+p,
+li,
+dd {
+    color: var(--light-blue-gray);
+}
+
+/* "code-line" paragraph variant (VS Code markdown preview) */
+p.code-line {
+    margin: 0 !important;
+}
+
+p.code-line:has(+ p.code-line, + hr.code-line) {
+    margin-bottom: 1.2rem !important;
+}
+p.code-line:has(+ hr.code-line) {
+    margin-bottom: 0.75rem !important;
+}
+
+/* <strong> inside a paragraph that precedes a code block/blockquote */
+p:has(+ blockquote, + pre) strong,
+p:has(+ blockquote, + pre) strong::after {
+    color: var(--light-blue-transparent);
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+}
+
+
+/* =========================================================
+   5. EMPHASIS
+   ========================================================= */
+
+strong,
+b {
+    color: var(--white-blue);
+}
+
+em,
+i {
+    color: var(--magenta);
+    font-weight: 700;
+}
+
+em strong {
+    font-weight: 700;
+}
+
+del,
+s {
+    color: var(--muted-blue);
+    text-decoration-line: line-through;
+    text-decoration-color: var(--pink);
+}
+
+s {
+    text-decoration-color: var(--light-blue-gray) !important;
+}
+
+sup,
+sub {
+    color: var(--purple);
+}
+
+abbr {
+    color: var(--green);
+    text-decoration-style: dotted;
+    cursor: help;
+}
+
+
+/* =========================================================
+   6. LINKS
+   ========================================================= */
+
+a,
+a::before {
+    display: inline-flex;
+}
+
+a {
+    color: var(--blue) !important;
+    font-weight: 700 !important;
+    text-decoration: 1px underline !important;
+    transition: transform 0.1s ease;
+    font-weight: 600 !important;
+}
+
+a:hover {
+    color: var(--blue-hover) !important;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:active {
+    color: var(--blue-active) !important;
+}
+
+/* Links containing <strong> */
+a:has(strong) {
+    text-decoration: none !important;
+    width: fit-content !important;
+}
+
+a>strong {
+    color: var(--blue) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+a:has(strong):hover,
+a>strong:hover {
+    display: inline-block;
+    color: var(--blue-hover) !important;
+    position: relative !important;
+    text-decoration: 1px solid underline !important;
+}
+
+a>strong:active {
+    color: var(--blue-active) !important;
+    transform: scale(0.998) !important;
+}
+
+/* =========================================================
+   7. LISTS
+   ========================================================= */
+
+ul,
+ol {
+    color: var(--light-gray);
+    margin-top: 0.75rem;
+}
+ul li {
+    margin-bottom: 0.2rem;
+}
+
+ul>li::marker {
+    color: var(--new-blue);
+}
+ul {
+    /* list-style-type: disc; */
+}
+
+/* =========================================================
+   8. BLOCKQUOTES
+   ========================================================= */
+
+blockquote {
+    box-sizing: border-box;
+    display: inline-flex;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1em 1.2em;
+    color: var(--light-gray);
+    background: var(--dark-blue);
+    border-left: 4px solid var(--blue-purple);
+    border-radius: 6px;
+}
+
+/* "code-line" blockquote variant (VS Code markdown preview) */
+blockquote.code-line,
+pre:has(code) {
+    margin-bottom: 1.1rem !important;
+    margin-top: 0.125rem !important;
+}
+
+blockquote.code-line p::before,
+blockquote.code-line p:hover,
+blockquote.code-line p.code-line {
+    background-color: var(--dark-gray) !important;
+    border-left: none !important;
+    font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   9. HORIZONTAL RULES
+   ========================================================= */
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--blue-purple) !important;
+    background: transparent !important;
+}
+
+/* "code-line" hr variant (VS Code markdown preview) */
+hr.code-line {
+    max-height: 0 !important;
+    margin: 0 !important;
+    margin-bottom: 1rem red !important ;/*color not ]display just there to enable border-image color*/
+    border-image: linear-gradient(180deg, var(--blue-purple), var(--blue-purple), #000) 1;
+}
+
+
+/* =========================================================
+   10. CODE
+   ========================================================= */
+
+/* Shared code typography */
+pre,
+code {
+    color: var(--light-blue-transparent) !important;
+    font-family: "Cascadia Code", sans-serif !important;
+}
+
+/* Inline code only: wrap long values */
+code:not(pre > code) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    padding: 0 !important;
+    background: var(--dark-blue) !important;
+    border: none transparent;
+    border-radius: 6px;
+}
+
+/* Code blocks: preserve formatting */
+pre {
+    white-space: pre;
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2em !important;
+    display: inline-flex;
+    overflow-x: auto;
+    border: none transparent;
+    border-radius: 10px;
+}
+
+/* Code inside code blocks */
+pre > code {
+    white-space: pre;
+    overflow-wrap: normal;
+    word-break: normal;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* VS Code code blocks */
+.vscode-body pre {
+    background: var(--dark-blue) !important;
+}
+
+.code-active-line::before {
+    border-left: none !important;
+}
+
+
+/* =========================================================
+   11. SYNTAX HIGHLIGHTING
+   ========================================================= */
+
+/* Shared syntax properties */
+span.hljs-keyword,
+span.hljs-title.function_,
+span.hljs-comment,
+span.hljs-built_in,
+span.hljs-string,
+span.hljs-literal,
+span.hljs-number,
+span.hljs-subst,
+span.hljs-title.class_,
+span.hljs-meta {
+    font-weight: 400 !important;
+}
+
+/* Comments */
+span.hljs-comment {
+    color: var(--gray-blue) !important;
+}
+
+/* Keywords */
+span.hljs-keyword {
+    color: var(--purple) !important;
+}
+
+/* Functions */
+span.hljs-title.function_ {
+    color: var(--blue) !important;
+}
+
+/* Built-ins */
+span.hljs-built_in {
+    color: var(--cyan) !important;
+}
+
+/* Strings */
+span.hljs-string {
+    color: var(--green) !important;
+}
+
+/* Literals / numbers */
+span.hljs-literal,
+span.hljs-number {
+    color: var(--orange) !important;
+}
+
+/* Parameters */
+span.hljs-params {
+    color: var(--yellow) !important;
+}
+
+/* Substitutions / classes */
+span.hljs-subst,
+span.hljs-title.class_ {
+    color: var(--light-blue-gray) !important;
+}
+
+/* Metadata */
+span.hljs-meta {
+    color: var(--light-blue) !important;
+    font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   12. TABLES
+   ========================================================= */
+
+table {
+    width: 100%;
+    color: var(--light-gray);
+    background: var(--black);
+    border-collapse: collapse;
+}
+
+thead {
+    color: var(--blue);
+    background: var(--black);
+}
+
+tbody {
+    color: var(--light-gray);
+    background: var(--black);
+}
+
+tfoot {
+    color: var(--muted-blue);
+    background: var(--black);
+}
+
+tr {
+    color: var(--table-text);
+    background: var(--black);
+    border-bottom: 1px solid var(--gray);
+}
+
+/* "code-line" tr variant (VS Code markdown preview) */
+tr.code-line {
+    color: var(--table-text);
+    background: var(--black) !important;
+}
+
+th {
+    color: var(--blue);
+    background: var(--black);
+}
+
+td {
+    color: var(--light-blue-gray);
+    background: var(--black);
+}
+
+td,
+th {
+    padding: 10px 14px;
+    border: 1px solid var(--gray);
+}
+
+caption {
+    color: var(--muted-blue);
+}
+
+
+/* =========================================================
+   13. FORMS
+   ========================================================= */
+
+input {
+    color: var(--light-gray);
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+}
+
+
+/* =========================================================
+   14. INTERACTIVE / SEMANTIC ELEMENTS
+   ========================================================= */
+
+mark {
+    padding: 0.1em 0.3em;
+    color: var(--dark-blue);
+    background: var(--highlight);
+    border-radius: 4px;
+}
+
+details {
+    padding: 12px;
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   15. DEFINITION LISTS
+   ========================================================= */
+
+dl {
+    color: var(--light-gray);
+}
+
+dt {
+    color: var(--blue);
+}
+
+dd {
+    color: var(--light-gray);
+}
+
+
+/* =========================================================
+   16. MEDIA
+   ========================================================= */
+
+img {
+    width: min(45rem, 100%) !important;
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   17. CUSTOM ELEMENT
+   ========================================================= */
+
+ary {
+    color: var(--light-cyan);
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   18. DEBUG (disabled)
+   ========================================================= */
+
+/* a {
+  outline: 1px solid blue;
+}
+* {
+  outline: 1px solid red;
+}
+strong {
+  outline: 1px solid yellow;
+}
+em {
+  outline: 1px solid green;
+} */
+/* p.code-line:has(strong):hover {
+    all:unset !important;
+} */
+/* p.code-line:has(strong):hover {
+  position: static !important;
+} */
+
+/* Kill common pseudo-element decorations */
+
+p.code-line:has(strong):hover {
+
+/* Kill common pseudo-element decorations */
+
+position: static !important;
+
+}
+
+
